@@ -1,57 +1,101 @@
+var  userAnswer;
 
-var userAnswer = prompt("Rock Paper Spock");
-
-var computerAnswer = Math.ceil(Math.random() * 3); 
+var computerAnswer;
 
 var Rock = 1;
 var Paper = 2;
 var Spock = 3;
+var winner;
 
-console.log(computerAnswer);
+function Roc(){
 
+	var test = document.getElementById("Rock").innerHTML;
+	userAnswer = test;
+	console.log(userAnswer);
+	playGame();
 
-if (userAnswer == "Rock" ||  userAnswer == "rock" && computerAnswer == Rock) {
+};
 
-	alert("Tie Game");
-}
+function Pape(){
 
-else if (userAnswer == "Rock" ||  userAnswer == "rock"&& computerAnswer == Paper) {
+	var test = document.getElementById("Paper").innerHTML;
+	userAnswer = test;
+	console.log(userAnswer);
+	playGame();
+
+};
+
+function Spoc(){
+
+	var test = document.getElementById("Spock").innerHTML;
+	userAnswer = test;
+	console.log(userAnswer);
+	playGame();
+
+};
+
+function playGame(){
+		
+		computerAnswer = Math.ceil(Math.random() * 3);
+
+if (userAnswer =="Rock" && computerAnswer == Rock) {
+
 	
-	alert("You Lost")
+	winner = "Tie Game";
+	 
+	logWinner();
 }
 
-else if (userAnswer == "Rock" ||  userAnswer == "rock" && computerAnswer == Spock) {
+else if (userAnswer =="Rock" && computerAnswer == Paper) {
 	
-	alert("You Won")
-}
-
-else if (userAnswer == "Paper" ||  userAnswer == "paper" && computerAnswer == Rock) {
-
-	alert("You Won");
-}
-
-else if (userAnswer == "Paper" ||  userAnswer == "paper" && computerAnswer == Paper) {
-	alert("You Tied")
-}
-
-else if (userAnswer == "Paper" ||  userAnswer == "paper" && computerAnswer == Spock) {
 	
-	alert("You Lost")
+	winner = "You Lost";
+	logWinner();
 }
 
-else if (userAnswer == "Spock" ||  userAnswer == "spock" && computerAnswer == Rock) {
-
-	alert("You Lost");
-}
-
-else if (userAnswer == "Spock" ||  userAnswer == "spock" && computerAnswer == Paper) {
+else if (userAnswer =="Rock"   && computerAnswer == Spock) {
 	
-	alert("You Won")
+	
+	winner = "You Won";
+	logWinner();
 }
 
-else if (userAnswer == "Spock" ||  userAnswer == "spock" && computerAnswer == Spock) {
+else if (userAnswer =="Paper" && computerAnswer == Rock) {
+
+	winner ="You Won";
+	logWinner();
+}
+
+else if (userAnswer =="Paper"   && computerAnswer == Paper) {
 	
-	alert("You Tied")
+	winner="You Tied";
+	logWinner();
+}
+
+else if (userAnswer  =="Paper"  && computerAnswer == Spock) {
+	
+	winner="You Lost";
+	logWinner();
+}
+
+else if (userAnswer == "Spock" && computerAnswer == Rock) {
+
+	
+	winner="You Lost";
+	logWinner();
+}
+
+else if (userAnswer == "Spock" && computerAnswer == Paper) {
+	
+	winner="You Won";
+	logWinner();
+}
+
+else if (userAnswer == "Spock" && computerAnswer == Spock) {
+	
+	
+	winner="You Tied";
+	logWinner();
 }
 
 else{
@@ -59,5 +103,13 @@ else{
 	alert("Pick Rock, Paper or Spock!")
 
 }
+};
 
+
+
+
+function logWinner(){
+
+	document.getElementById("winner").innerHTML = " " + winner;
+}
 
